@@ -2,7 +2,19 @@ import React from 'react'
 
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+<div className="container">
+  <div className="row">
+    <div className="col-sm">
+      One of three columns
+    </div>
+    <div className="col-sm">
+      One of three columns
+    </div>
+    <div className="col-sm">
+      One of three columns
+    </div>
+  </div>
+</div>
   )
 }
 
