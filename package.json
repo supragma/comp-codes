@@ -10,6 +10,7 @@
     "axios": "^0.20.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "bootstrap": "^4.5.3",
+    "check-password-strength": "^1.0.15",
     "prop-types": "^15.7.2",
     "react": "^17.0.0",
     "react-bootstrap": "^1.4.0",
