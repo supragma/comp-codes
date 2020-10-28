@@ -17,6 +17,15 @@ const Signup = () => {
 
   const authenticity_token = useContext(FormContext)
 
+  const onSubmitPostReturn = (resp) => {
+    console.log(resp)
+    if(resp.data.success == false) {
+      alert(resp.data.error)
+      return
+    }
+    // TODO Redirect to next page 
+  }
+
   const handleFormSubmit = (e) => {
     e.preventDefault()
     if (formData.password != formData.password_confirmation) {
@@ -32,7 +41,7 @@ const Signup = () => {
                  email: formData.email,
                  password: formData.password,
                  password_confirmation: formData.password_confirm })
-    .then(resp => console.log(resp))
+    .then(resp => onSubmitPostReturn(resp))
     .catch(data => console.log('error', data))
   }
 

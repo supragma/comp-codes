@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       # Set paths for sessions.
-      get    '/sign_in',              to: 'sessions#new'
       post   '/sign_in',              to: 'sessions#create'
       get    '/authenticate_session', to: 'sessions#authenticate'
       delete '/sign_out',             to: 'sessions#destroy'

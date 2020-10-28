@@ -2,18 +2,18 @@ module Api
   module V1
     class UsersController < ParentController
       def create
-        # TODO Create user here
-        puts "API/V1/SIGNUP"
-        puts params
+        user = User.create!(email: params['email'],
+                            first_name: params['first_name'],
+                            last_name: params['last_name'],
+                            password: params['password'],
+                            password_confirmation: params['password_confirmation'])
+        # Create a session for this user.
+        session[:user_id] = user.id
+        # TODO send welcome email
+        render status: 200, json: { success: true }
+      rescue ActiveRecord::RecordInvalid => e
+        render json: { success: false, error: e.message }, status: 200
       end
     end
-
-    private
-    # Sanitize the user params.
-      def user_params
-        permitted_params =
-          %i[email first_name last_name password password_confirmation]
-        params.require(:user).permit(permitted_params)
-      end
   end
 end
