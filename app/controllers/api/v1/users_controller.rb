@@ -5,6 +5,7 @@ module Api
         user = User.create!(email: params['email'].downcase,
                             first_name: params['first_name'],
                             last_name: params['last_name'],
+                            phone: params['phone'],
                             password: params['password'],
                             password_confirmation: params['password_confirmation'])
         # Create a session for this user.

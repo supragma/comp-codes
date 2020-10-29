@@ -9,6 +9,7 @@ class ApiV1SessionControllerTest < ActionDispatch::IntegrationTest
       post api_v1_sign_up_path,
         params: { first_name: 'first',
                   last_name: 'last',
+                  phone: '1231231234',
                   email: 'test3@email.com',
                   password: 'password',
                   password_confirmation: 'password' }
@@ -30,6 +31,7 @@ class ApiV1SessionControllerTest < ActionDispatch::IntegrationTest
         params: { first_name: 'first',
                   last_name: 'last',
                   email: 'test3@email.com',
+                  phone: '1231231234',
                   password: 'password',
                   password_confirmation: 'password' }
     end
@@ -58,6 +60,7 @@ class ApiV1SessionControllerTest < ActionDispatch::IntegrationTest
         params: { first_name: 'first',
                   last_name: 'last',
                   email: 'test3@email.com',
+                  phone: '1231231234',
                   password: 'password',
                   password_confirmation: 'password' }
     end

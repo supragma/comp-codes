@@ -16,6 +16,7 @@ class ApiV1UsersControllerTest < ActionDispatch::IntegrationTest
        params: { first_name: 'first',
                  last_name: 'last',
                  email: 'test3@email.com',
+                 phone: '1231231234',
                  password: 'password',
                  password_confirmation: 'password' }
     end
@@ -30,6 +31,7 @@ class ApiV1UsersControllerTest < ActionDispatch::IntegrationTest
        params: { first_name: 'first',
                  last_name: 'last',
                  email: 'test@email.com',
+                 phone: '1231231234',
                  password: 'password',
                  password_confirmation: 'password' }
     end
@@ -44,6 +46,7 @@ class ApiV1UsersControllerTest < ActionDispatch::IntegrationTest
        params: { first_name: 'first',
                  last_name: 'last',
                  email: 'test4@email.com',
+                 phone: '1231231234',
                  password: 'password',
                  password_confirmation: 'badpassword' }
     end

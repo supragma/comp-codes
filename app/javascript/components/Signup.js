@@ -9,6 +9,7 @@ const Signup = () => {
     first_name: '',
     last_name: '',
     email: '',
+    phone: '',
     password: '',
     password_confirmation: '',
   })
@@ -18,12 +19,11 @@ const Signup = () => {
   const authenticity_token = useContext(FormContext)
 
   const onSubmitPostReturn = (resp) => {
-    console.log(resp)
     if(resp.data.success == false) {
       alert(resp.data.error)
       return
     }
-    // TODO Redirect to next page 
+    window.location.href = '/createprojectsiteinfo'
   }
 
   const handleFormSubmit = (e) => {
@@ -39,6 +39,7 @@ const Signup = () => {
                { first_name: formData.first_name,
                  last_name: formData.last_name,
                  email: formData.email,
+                 phone: formData.phone,
                  password: formData.password,
                  password_confirmation: formData.password_confirm })
     .then(resp => onSubmitPostReturn(resp))
@@ -75,10 +76,18 @@ const Signup = () => {
                      onChange={handleInputChange}
               />
             </div>
-              <div className='col-md-12'>
+            <div className='col-md-12'>
               <label><b>Email</b>&nbsp;</label>
               <input required
                      name='email'
+                     type='text'
+                     onChange={handleInputChange}
+              />
+            </div>
+            <div className='col-md-12'>
+              <label><b>Phone Number</b>&nbsp;</label>
+              <input required
+                     name='phone'
                      type='text'
                      onChange={handleInputChange}
               />
