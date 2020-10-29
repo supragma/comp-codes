@@ -2,7 +2,7 @@ module Api
   module V1
     class UsersController < ParentController
       def create
-        user = User.create!(email: params['email'],
+        user = User.create!(email: params['email'].downcase,
                             first_name: params['first_name'],
                             last_name: params['last_name'],
                             password: params['password'],

@@ -1,18 +1,22 @@
 module Api
   module V1
     class SessionsController < ParentController
+      # Message to show the user when auth fails.
+      AUTH_FAILED = 'Bad email or password'
+
       # Sign in API. Creates a new session.
       def create
-        user = User.find_by_email(params['email')
+        user = User.find_by_email(params['email'])
         if user && user.authenticate(params['password'])
           session[:user_id] = user.id
-          render status: 200, json: { success: true }
+          render status: 200, json: { success: true,
+                                      session_info: session_info(user) }
         else
           render status: 200, json: { success: false,
-                                      error: 'Bad email or password' }
+                                      error: AUTH_FAILED }
         end
       rescue ActiveRecord::RecordInvalid => e
-        render json: { success: false, error: e.message }, status: 200
+        render json: { success: false, error: AUTH_FAILED }, status: 200
       end
 
       # See if user is authenticated.
