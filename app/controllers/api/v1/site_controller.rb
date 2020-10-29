@@ -16,7 +16,6 @@ module Api
       rescue ActiveRecord::RecordInvalid => e
         render json: { success: false, error: e.message }, status: 200
       rescue Exception => e
-        puts e.message
         render json: { success: false, error: e.message }, status: 200
       end
     end
