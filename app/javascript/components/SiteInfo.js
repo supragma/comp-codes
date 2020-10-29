@@ -1,34 +1,26 @@
 import React, { useContext, useState} from 'react'
 import axios from 'axios'
 
-const passwordStrength = require('check-password-strength')
-
-const Signup = () => {
+const SiteInfo = () => {
   const [formData, setFormData] = useState({
-    first_name: '',
-    last_name: '',
-    email: '',
-    phone: '',
-    password: '',
-    password_confirmation: '',
+    address: '',
+    city: '',
+    state: '',
+    zip: '',
+    location_type: '',
+    lot_size: 0,
   })
-
-  const [passwordStrengthLabel, setPasswordStrengthLabel] = useState('')
 
   const onSubmitPostReturn = (resp) => {
     if(resp.data.success == false) {
       alert(resp.data.error)
       return
     }
-    window.location.href = '/createprojectsiteinfo'
+    window.location.href = '/projectinfo'
   }
 
   const handleFormSubmit = (e) => {
     e.preventDefault()
-    if (formData.password != formData.password_confirmation) {
-      alert("Password do not match")
-      return
-    }
     const token = document.querySelector('[name=csrf-token]').content
     axios.defaults.headers.post['X-CSRF-TOKEN'] = token
     axios.post('/api/v1/sign_up',
@@ -43,16 +35,13 @@ const Signup = () => {
   }
 
   const handleInputChange = (e) => {
-    if (e.target.name == 'password') {
-      setPasswordStrengthLabel(passwordStrength(e.target.value).value)
-    }
     setFormData({...formData, [e.target.name]: e.target.value })
   }
 
   return (
     <div className='container'>
       <div className='col-md8 order-2 order-md1'>
-      <h1>The Comp Codes Sign up</h1>
+      <h1>Site Information</h1>
         <form onSubmit={handleFormSubmit}>
           <div className='row'>
             <div className='col-md-12'>
@@ -110,7 +99,7 @@ const Signup = () => {
           </div>
           <div className='row'>
             <div className='col-md-12'>
-              <button className='btn btn-primary'>Next</button>
+              <button className='btn btn-primary'>Submit</button>
             </div>
           </div>
         </form>
@@ -119,4 +108,4 @@ const Signup = () => {
   )
 }
 
-export default Signup
+export default SiteInfo

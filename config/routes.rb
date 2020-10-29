@@ -11,6 +11,9 @@ Rails.application.routes.draw do
 
       # Set paths for users.
       post '/sign_up', to: 'users#create'
+
+      # Paths for sites.
+      post '/site',    to: 'site#create'
    end
   end
   get '*path', to: 'pages#index', via: :all
