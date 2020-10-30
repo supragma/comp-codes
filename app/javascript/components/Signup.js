@@ -20,7 +20,7 @@ const Signup = () => {
       alert(resp.data.error)
       return
     }
-    window.location.href = '/createprojectsiteinfo'
+    window.location.href = '/siteinfo'
   }
 
   const handleFormSubmit = (e) => {

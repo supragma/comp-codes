@@ -1,12 +1,12 @@
 import React, { useContext, useState} from 'react'
 import axios from 'axios'
-import SelectUSState from 'react-select-us-states';
-import Dropdown from 'react-dropdown';
-import 'react-dropdown/style.css';
+import SelectUSState from 'react-select-us-states'
+import Dropdown from 'react-dropdown'
+import 'react-dropdown/style.css'
  
 const locationTypeOptions = [
   'Residential', 'Commercial', 'ADU'
-];
+]
 const defaultLocationTypeOption = locationTypeOptions[0]
 
 const SiteInfo = () => {
@@ -90,7 +90,11 @@ const SiteInfo = () => {
               <b>State</b>: <SelectUSState name="state"  onChange={handleStateChange}/>
             </div>
             <div className='col-md-12'>
-              <b>Location Type</b><Dropdown options={locationTypeOptions} onChange={handleLocationTypeChange} value={defaultLocationTypeOption} placeholder="Select Location Type" />
+              <b>Location Type</b>
+              <Dropdown options={locationTypeOptions}
+                        onChange={handleLocationTypeChange}
+                        value={defaultLocationTypeOption}
+                        placeholder="Select Location Type" />
             </div>
             <div className='col-md-12'>
               <label><b>Lot Size</b>&nbsp;</label>
