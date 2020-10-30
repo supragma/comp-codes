@@ -26,7 +26,7 @@ class ApiV1SiteControllerTest < ActionDispatch::IntegrationTest
     assert json_response['success']
 
     assert_difference('Site.count') do
-      post api_v1_site_path,
+      post api_v1_siteinfo_path,
         params: { address: '11301 Paso Robles',
                   city: 'Granada Hills',
                   zip: '91344',
@@ -42,7 +42,7 @@ class ApiV1SiteControllerTest < ActionDispatch::IntegrationTest
 
   test 'should fail to create a site because user is not logged in' do
     assert_no_difference('Site.count') do
-      post api_v1_site_path,
+      post api_v1_siteinfo_path,
         params: { address: '11301 Paso Robles',
                   city: 'Granada Hills',
                   state: 'CA',
@@ -72,7 +72,7 @@ class ApiV1SiteControllerTest < ActionDispatch::IntegrationTest
     assert json_response['success']
 
     assert_no_difference('Site.count') do
-      post api_v1_site_path,
+      post api_v1_siteinfo_path,
         params: { address: '11301 Paso Robles',
                   city: 'Granada Hills',
                   state: 'CA',

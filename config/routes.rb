@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       post '/sign_up', to: 'users#create'
 
       # Paths for sites.
-      post '/site',    to: 'site#create'
+      post '/siteinfo',    to: 'site#create'
    end
   end
   get '*path', to: 'pages#index', via: :all
