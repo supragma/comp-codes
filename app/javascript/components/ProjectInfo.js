@@ -26,6 +26,7 @@ const defaultProjectSizeOption = projectSizeOptions[0]
 
 const ProjectInfo = () => {
   const [formData, setFormData] = useState({
+    site_id: 0,
     type: '',
     size: '',
     details: '',

@@ -14,6 +14,9 @@ Rails.application.routes.draw do
 
       # Paths for sites.
       post '/siteinfo',    to: 'site#create'
+
+      # Paths for projects.
+      post 'projectinfo',  to: 'project#create'
    end
   end
   get '*path', to: 'pages#index', via: :all

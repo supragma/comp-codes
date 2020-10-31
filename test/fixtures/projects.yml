@@ -1,0 +1,33 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  site_id: 1
+  user_id: 1
+  project_type: 
+  details: MyString
+  interior_alt: false
+  exterior_alt: false
+  earth_work: false
+  site_improvements: false
+  mech_elect_plumb: false
+  sewer: false
+  change_use: false
+  zoning: false
+  environment_concerns: false
+  steep_slope: false
+
+two:
+  site_id: 1
+  user_id: 1
+  project_type: 
+  details: MyString
+  interior_alt: false
+  exterior_alt: false
+  earth_work: false
+  site_improvements: false
+  mech_elect_plumb: false
+  sewer: false
+  change_use: false
+  zoning: false
+  environment_concerns: false
+  steep_slope: false

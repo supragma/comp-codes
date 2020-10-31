@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_29_231431) do
+ActiveRecord::Schema.define(version: 2020_10_31_170316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "projects", force: :cascade do |t|
+    t.integer "site_id"
+    t.integer "user_id"
+    t.string "project_type"
+    t.string "details"
+    t.boolean "interior_alt"
+    t.boolean "exterior_alt"
+    t.boolean "earth_work"
+    t.boolean "site_improvements"
+    t.boolean "mech_elect_plumb"
+    t.boolean "sewer"
+    t.boolean "change_use"
+    t.boolean "zoning"
+    t.boolean "environment_concerns"
+    t.boolean "steep_slope"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "sites", force: :cascade do |t|
     t.string "address"
