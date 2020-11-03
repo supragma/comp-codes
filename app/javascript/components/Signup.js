@@ -27,7 +27,6 @@ const Signup = () => {
       return
     }
     dispatch({type: 'LOGIN'})
-    //window.location.href = '/siteinfo'
     history.push('/siteinfo')
   }
 

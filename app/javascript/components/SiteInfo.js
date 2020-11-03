@@ -1,8 +1,9 @@
-import React, { useContext, useState} from 'react'
 import axios from 'axios'
+import React, { useContext, useState} from 'react'
 import SelectUSState from 'react-select-us-states'
 import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css'
+import { useHistory } from 'react-router-dom'
  
 const locationTypeOptions = [
   'Residential', 'Commercial', 'ADU'
@@ -19,12 +20,15 @@ const SiteInfo = () => {
     lot_size: "0",
   })
 
+  const history = useHistory()
+
   const onSubmitPostReturn = (resp) => {
     if(resp.data.success == false) {
       alert(resp.data.error)
       return
     }
-    window.location.href = '/projectinfo'
+
+    history.push('/projectinfo/')
   }
 
   const handleFormSubmit = (e) => {
