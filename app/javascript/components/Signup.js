@@ -1,5 +1,7 @@
 import React, { useContext, useState} from 'react'
 import axios from 'axios'
+import { useDispatch } from 'react-redux'
+import { useHistory } from 'react-router-dom';
 
 const passwordStrength = require('check-password-strength')
 
@@ -13,6 +15,10 @@ const Signup = () => {
     password_confirmation: '',
   })
 
+  const dispatch = useDispatch()
+
+  const history = useHistory();
+
   const [passwordStrengthLabel, setPasswordStrengthLabel] = useState('')
 
   const onSubmitPostReturn = (resp) => {
@@ -20,7 +26,9 @@ const Signup = () => {
       alert(resp.data.error)
       return
     }
-    window.location.href = '/siteinfo'
+    dispatch({type: 'LOGIN'})
+    //window.location.href = '/siteinfo'
+    history.push('/siteinfo')
   }
 
   const handleFormSubmit = (e) => {
@@ -48,7 +56,6 @@ const Signup = () => {
     }
     setFormData({...formData, [e.target.name]: e.target.value })
   }
-
   return (
     <div className='container'>
       <div className='col-md8 order-2 order-md1'>
