@@ -3,10 +3,12 @@ import { useDispatch } from 'react-redux'
 
 import countReducer from '../reducers/counter'
 import loginReducer from '../reducers/login'
+import siteIDReducer from '../reducers/siteid'
 
 const rootReducer = combineReducers({
   count: countReducer,
-  isLogged: loginReducer
+  isLogged: loginReducer,
+  siteID: siteIDReducer
 })
 
 const loadState = () => {

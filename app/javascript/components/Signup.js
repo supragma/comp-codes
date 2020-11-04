@@ -62,58 +62,65 @@ const Signup = () => {
         <form onSubmit={handleFormSubmit}>
           <div className='row'>
             <div className='col-md-12'>
-              <label><b>First Name</b>&nbsp;</label>
+              <label><b>First Name</b></label><br/>
               <input required
                      name='first_name'
                      type='text'
+                     value={formData.first_name}
                      onChange={handleInputChange}
               />
             </div>
             <div className='col-md-12'>
-              <label><b>Last Name</b>&nbsp;</label>
+              <label><b>Last Name</b></label><br/>
               <input required
                      name='last_name'
                      type='text'
+                     value={formData.last_name}
                      onChange={handleInputChange}
               />
             </div>
             <div className='col-md-12'>
-              <label><b>Email</b>&nbsp;</label>
+              <label><b>Email</b></label><br/>
               <input required
                      name='email'
                      type='text'
+                     value={formData.email}
                      onChange={handleInputChange}
               />
             </div>
             <div className='col-md-12'>
-              <label><b>Phone Number</b>&nbsp;</label>
+              <label><b>Phone Number</b></label><br/>
               <input required
                      name='phone'
                      type='text'
+                     value={formData.phone}
                      onChange={handleInputChange}
               />
             </div>
             <div className='col-md-12'>
-              <label><b>Password</b>&nbsp;</label>
+              <label><b>Password</b></label><br/>
               <input required
                      name='password'
                      type='password'
                      id='password-input'
+                     value={formData.password}
                      onChange={handleInputChange}
               />
               <div>{passwordStrengthLabel}</div>
             </div>
             <div className='col-md-12'>
-              <label><b>Confirm Password</b>&nbsp;</label>
+              <label><b>Confirm Password</b></label><br/>
               <input required
                      name='password_confirmation'
                      type='password'
+                     value={formData.password_confirmation}
                      data-parsley-equalto="#password-input"
                      data-parsley-equalto-message='This value does not match the password field.'
                      onChange={handleInputChange} 
               />
             </div>
           </div>
+          <br/>
           <div className='row'>
             <div className='col-md-12'>
               <button className='btn btn-primary'>Next</button>

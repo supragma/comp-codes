@@ -1,20 +1,26 @@
 import axios from 'axios'
 import React, { useContext, useState} from 'react'
-import SelectUSState from 'react-select-us-states'
 import Dropdown from 'react-dropdown'
 import 'react-dropdown/style.css'
 import { useHistory } from 'react-router-dom'
- 
+import { useDispatch } from 'react-redux'
+import { setSiteID } from '../actions/actions'
+
 const locationTypeOptions = [
   'Residential', 'Commercial', 'ADU'
 ]
 const defaultLocationTypeOption = locationTypeOptions[0]
 
+const stateLocationOptions = [
+  'CA'
+]
+const defaultStateLocationOption = stateLocationOptions[0]
+
 const SiteInfo = () => {
   const [formData, setFormData] = useState({
     address: '',
     city: '',
-    state: 'AL',
+    state: defaultStateLocationOption,
     zip: '',
     location_type: defaultLocationTypeOption,
     lot_size: "0",
@@ -22,12 +28,14 @@ const SiteInfo = () => {
 
   const history = useHistory()
 
+  const dispatch = useDispatch()
+
   const onSubmitPostReturn = (resp) => {
     if(resp.data.success == false) {
       alert(resp.data.error)
       return
     }
-
+    dispatch(setSiteID(resp.data.site_id))
     history.push('/projectinfo/')
   }
 
@@ -51,12 +59,10 @@ const SiteInfo = () => {
   }
 
   const handleStateChange = (value) => {
-    console.log(value)
-    setFormData({...formData, ['state']: value })
+    setFormData({...formData, ['state']: value.value })
   }
 
   const handleLocationTypeChange = (value) => {
-    console.log(value.value)
     setFormData({...formData, ['location_type']: value.value })
   }
 
@@ -67,7 +73,7 @@ const SiteInfo = () => {
         <form onSubmit={handleFormSubmit}>
           <div className='row'>
             <div className='col-md-12'>
-              <label><b>Address</b>&nbsp;</label>
+              <label><b>Address</b>&nbsp;</label><br/>
               <input required
                      name='address'
                      type='text'
@@ -75,7 +81,7 @@ const SiteInfo = () => {
               />
             </div>
             <div className='col-md-12'>
-              <label><b>City</b>&nbsp;</label>
+              <label><b>City</b>&nbsp;</label><br/>
               <input required
                      name='city'
                      type='text'
@@ -83,7 +89,7 @@ const SiteInfo = () => {
               />
             </div>
             <div className='col-md-12'>
-              <label><b>Zip Code</b>&nbsp;</label>
+              <label><b>Zip Code</b>&nbsp;</label><br/>
               <input required
                      name='zip'
                      type='text'
@@ -91,17 +97,21 @@ const SiteInfo = () => {
               />
             </div>
             <div className='col-md-12'>
-              <b>State</b>: <SelectUSState name="state"  onChange={handleStateChange}/>
+              <b>State</b><br/>
+              <Dropdown options={stateLocationOptions}
+                        onChange={handleStateChange}
+                        value={defaultStateLocationOption}
+                        placeholder='Select State' />
             </div>
             <div className='col-md-12'>
               <b>Location Type</b>
               <Dropdown options={locationTypeOptions}
                         onChange={handleLocationTypeChange}
                         value={defaultLocationTypeOption}
-                        placeholder="Select Location Type" />
+                        placeholder='Select Location Type' />
             </div>
             <div className='col-md-12'>
-              <label><b>Lot Size</b>&nbsp;</label>
+              <label><b>Lot Size (sq ft.)</b>&nbsp;</label><br/>
               <input required
                      name='lot_size'
                      type='text'
@@ -109,6 +119,7 @@ const SiteInfo = () => {
               />
             </div>
           </div>
+          <br/>
           <div className='row'>
             <div className='col-md-12'>
               <button className='btn btn-primary'>Next</button>

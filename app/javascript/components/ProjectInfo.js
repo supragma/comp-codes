@@ -1,6 +1,7 @@
 import React, { useContext, useState} from 'react'
 import axios from 'axios'
 import Dropdown from 'react-dropdown'
+import { useSelector } from 'react-redux'
 
 const projectTypeOptions = [
   'New Construction',
@@ -25,10 +26,11 @@ const projectSizeOptions = [
 const defaultProjectSizeOption = projectSizeOptions[0]
 
 const ProjectInfo = () => {
+  const siteID = useSelector(state => state.siteID)
+
   const [formData, setFormData] = useState({
-    site_id: 0,
-    type: '',
-    size: '',
+    type: defaultProjectTypeOption,
+    size: defaultProjectSizeOption,
     details: '',
     interior_alt: 'No',
     exterior_alt: 'No',
@@ -55,7 +57,8 @@ const ProjectInfo = () => {
     const token = document.querySelector('[name=csrf-token]').content
     axios.defaults.headers.post['X-CSRF-TOKEN'] = token
     axios.post('/api/v1/projectinfo',
-               { type: formData.type,
+               { site_id: siteID,
+                 type: formData.type,
                  size: formData.size,
                  details: formData.details,
                  interior_alt: formData.interior_alt,
@@ -81,7 +84,6 @@ const ProjectInfo = () => {
   }
 
   const handleInputChange = (e) => {
-   console.log(e)
    setFormData({...formData, [e.target.name]: e.target.value })
   }
 
@@ -115,56 +117,67 @@ const ProjectInfo = () => {
                         rows='10' style={{width: '100%'}}/>
             </div>
           </div>
+          <br/>
           <div onChange={handleInputChange}>
             <label><b>Has Interior Alterations?</b></label><br/>
             <input type="radio" value="No" name="interior_alt" defaultChecked/> No
             <input type="radio" value="Yes" name="interior_alt"/> Yes
           </div>
+          <br/>
           <div onChange={handleInputChange}>
             <label><b>Has Exterior Alterations to the Structure?</b></label><br/>
             <input type="radio" value="No" name="exterior_alt" defaultChecked/> No
             <input type="radio" value="Yes" name="exterior_alt"/> Yes
           </div>
+          <br/>
           <div onChange={handleInputChange}>
             <label><b>Has Earth Work (Grading)?</b></label><br/>
             <input type="radio" value="No" name="earth_work" defaultChecked/> No
             <input type="radio" value="Yes" name="earth_work"/> Yes
           </div>
+          <br/>
           <div onChange={handleInputChange}>
             <label><b>Site Improvements (Outdoors)?</b></label><br/>
             <input type="radio" value="No" name="site_improvements" defaultChecked/> No
             <input type="radio" value="Yes" name="site_improvements"/> Yes
           </div>
+          <br/>
           <div onChange={handleInputChange}>
             <label><b>Will you need Mechanical, Electrial and Plumbing work?</b></label><br/>
             <input type="radio" value="No" name="mech_elect_plumb" defaultChecked/> No
             <input type="radio" value="Yes" name="mech_elect_plumb"/> Yes
           </div>
+          <br/>
           <div onChange={handleInputChange}>
             <label><b>Sewer or Septics repairs?</b></label><br/>
             <input type="radio" value="No" name="sewer" defaultChecked/> No
             <input type="radio" value="Yes" name="sewer"/> Yes
           </div>
+          <br/>
           <div onChange={handleInputChange}>
             <label><b>Change of use of the building??</b></label><br/>
             <input type="radio" value="No" name="change_use" defaultChecked/> No
             <input type="radio" value="Yes" name="change_use"/> Yes
           </div>
+          <br/>
           <div onChange={handleInputChange}>
             <label><b>Zoning Variance Needed?</b></label><br/>
             <input type="radio" value="No" name="zoning" defaultChecked/> No
             <input type="radio" value="Yes" name="zoning"/> Yes
           </div>
+          <br/>
           <div onChange={handleInputChange}>
             <label><b>Environmental Concerns?</b></label><br/>
             <input type="radio" value="No" name="environment_concerns" defaultChecked/> No
             <input type="radio" value="Yes" name="environment_concerns"/> Yes
           </div>
+          <br/>
           <div onChange={handleInputChange}>
             <label><b>Steep Slope?</b></label><br/>
             <input type="radio" value="No" name="steep_slope" defaultChecked/> No
             <input type="radio" value="Yes" name="steep_slope"/> Yes
           </div>
+          <br/>
           <div className='row'>
             <div className='col-md-12'>
               <button className='btn btn-primary'>Get Instant Quote</button>
