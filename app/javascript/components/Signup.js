@@ -17,7 +17,7 @@ const Signup = () => {
 
   const dispatch = useDispatch()
 
-  const history = useHistory();
+  const history = useHistory()
 
   const [passwordStrengthLabel, setPasswordStrengthLabel] = useState('')
 
@@ -55,10 +55,11 @@ const Signup = () => {
     }
     setFormData({...formData, [e.target.name]: e.target.value })
   }
+
   return (
     <div className='container'>
       <div className='col-md8 order-2 order-md1'>
-      <h1>The Comp Codes Sign up</h1>
+        <h1>The Comp Codes Sign up</h1>
         <form onSubmit={handleFormSubmit}>
           <div className='row'>
             <div className='col-md-12'>
