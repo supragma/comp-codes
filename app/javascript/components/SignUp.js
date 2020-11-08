@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 
 const passwordStrength = require('check-password-strength')
 
-const Signup = () => {
+const SignUp = () => {
   const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
@@ -133,4 +133,4 @@ const Signup = () => {
   )
 }
 
-export default Signup
+export default SignUp

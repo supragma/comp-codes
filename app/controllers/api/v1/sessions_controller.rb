@@ -30,6 +30,13 @@ module Api
         end
       end
 
+      # Clear the session of the user on log out.
+      def destroy
+        session.clear
+        cookies.clear
+        render json: { success: true }
+      end
+
       private
 
       def session_info(user)
