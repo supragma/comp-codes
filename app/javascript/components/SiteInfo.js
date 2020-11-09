@@ -78,6 +78,7 @@ const SiteInfo = () => {
                      name='address'
                      type='text'
                      onChange={handleInputChange}
+                     className='form-control'
               />
             </div>
             <div className='col-md-12'>
@@ -86,6 +87,7 @@ const SiteInfo = () => {
                      name='city'
                      type='text'
                      onChange={handleInputChange}
+                     className='form-control'
               />
             </div>
             <div className='col-md-12'>
@@ -94,6 +96,7 @@ const SiteInfo = () => {
                      name='zip'
                      type='text'
                      onChange={handleInputChange}
+                     className='form-control'
               />
             </div>
             <div className='col-md-12'>
@@ -116,6 +119,7 @@ const SiteInfo = () => {
                      name='lot_size'
                      type='text'
                      onChange={handleInputChange}
+                     className='form-control'
               />
             </div>
           </div>

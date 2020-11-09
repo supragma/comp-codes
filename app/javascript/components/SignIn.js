@@ -49,6 +49,7 @@ const SignIn = () => {
                      type='text'
                      value={formData.email}
                      onChange={handleInputChange}
+                     className='form-control'
               />
             </div>
             <div className='col-md-12'>
@@ -58,8 +59,10 @@ const SignIn = () => {
                      type='password'
                      value={formData.password}
                      onChange={handleInputChange}
+                     className='form-control'
               />
             </div>
+            <br/>
             <br/>
             <br/>
             <br/>

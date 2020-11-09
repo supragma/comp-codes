@@ -69,6 +69,7 @@ const SignUp = () => {
                      type='text'
                      value={formData.first_name}
                      onChange={handleInputChange}
+                     className='form-control'
               />
             </div>
             <div className='col-md-12'>
@@ -78,6 +79,7 @@ const SignUp = () => {
                      type='text'
                      value={formData.last_name}
                      onChange={handleInputChange}
+                     className='form-control'
               />
             </div>
             <div className='col-md-12'>
@@ -87,6 +89,7 @@ const SignUp = () => {
                      type='text'
                      value={formData.email}
                      onChange={handleInputChange}
+                     className='form-control'
               />
             </div>
             <div className='col-md-12'>
@@ -96,6 +99,7 @@ const SignUp = () => {
                      type='text'
                      value={formData.phone}
                      onChange={handleInputChange}
+                     className='form-control'
               />
             </div>
             <div className='col-md-12'>
@@ -106,6 +110,7 @@ const SignUp = () => {
                      id='password-input'
                      value={formData.password}
                      onChange={handleInputChange}
+                     className='form-control'
               />
               <div>{passwordStrengthLabel}</div>
             </div>
@@ -118,6 +123,7 @@ const SignUp = () => {
                      data-parsley-equalto="#password-input"
                      data-parsley-equalto-message='This value does not match the password field.'
                      onChange={handleInputChange} 
+                     className='form-control'
               />
             </div>
           </div>
