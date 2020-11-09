@@ -1,7 +1,7 @@
 module Api
   module V1
     class SessionsController < ParentController
-      skip_before_action :verify_authenticity_token, only: %i[destroy]
+      skip_before_action :verify_authenticity_token
 
       # Message to show the user when auth fails.
       AUTH_FAILED = 'Bad email or password'

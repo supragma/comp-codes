@@ -23,7 +23,6 @@ const Header = () => {
 
   const signOut = (e) => {
     e.preventDefault()
-    console.log(e)
     const token = document.querySelector('[name=csrf-token]').content
     axios.defaults.headers.post['X-CSRF-TOKEN'] = token
     axios.delete('/api/v1/sign_out')
@@ -41,9 +40,10 @@ const Header = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ml-auto">
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/messages">Messages</Nav.Link>
-              <Nav.Link href="/projectinfo">+ New Project</Nav.Link> 
+              <Nav.Link onClick={() => history.push('/')}>Dashboard</Nav.Link>
+              <Nav.Link onClick={() => history.push('/messages')}>Messages</Nav.Link>
+              <Nav.Link onClick={() => history.push('/siteinfo')}>New Site</Nav.Link> 
+              <Nav.Link onClick={() => history.push('/projectinfo')}>New Project</Nav.Link> 
               <Button onClick={signOut}>Sign Out</Button> 
             </Nav>
           </Navbar.Collapse>

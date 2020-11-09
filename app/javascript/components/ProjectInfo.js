@@ -156,7 +156,7 @@ const ProjectInfo = () => {
           </div>
           <br/>
           <div onChange={handleInputChange}>
-            <label><b>Change of use of the building??</b></label><br/>
+            <label><b>Change of use of the building?</b></label><br/>
             <input type="radio" value="No" name="change_use" /> No <br/>
             <input type="radio" value="Yes" name="change_use"/> Yes
           </div>

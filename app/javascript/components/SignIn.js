@@ -18,7 +18,7 @@ const SignIn = () => {
       return
     }
     dispatch({type: 'LOGIN'})
-    history.push('/dashboard')
+    history.push('/')
   }
 
   const handleFormSubmit = (e) => {
