@@ -49,7 +49,7 @@ const SignIn = () => {
                      type='text'
                      value={formData.email}
                      onChange={handleInputChange}
-                     className='form-control'
+                     className='form-control form-control-lg'
               />
             </div>
             <div className='col-md-12'>
@@ -59,7 +59,7 @@ const SignIn = () => {
                      type='password'
                      value={formData.password}
                      onChange={handleInputChange}
-                     className='form-control'
+                     className='form-control form-control-lg'
               />
             </div>
             <br/>
@@ -67,7 +67,7 @@ const SignIn = () => {
             <br/>
             <br/>
             <div className='col-md-12'>
-              <button className='btn btn-primary'>Submit</button>
+              <button className='btn btn-primary'>Sign In</button>
             </div>
           </div>
         </form>
